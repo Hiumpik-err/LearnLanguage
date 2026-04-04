@@ -11,9 +11,17 @@ namespace LearnEnglishVocab.ViewModel
     public partial class LoggingAndRegistration
     {
         [ObservableProperty]
-        private string username;
+        private string emaill;
         [ObservableProperty]
         private string _password;
+        [ObservableProperty]
+        private string firstname;
+        [ObservableProperty]
+        private string lastname;
+        [ObservableProperty]
+        private string username;
+        [ObservableProperty]
+        private int age;
 
 
         [RelayCommand]
@@ -27,10 +35,25 @@ namespace LearnEnglishVocab.ViewModel
             // Login 
         }
         [RelayCommand]
-        public void GoToRegistration()
+        public async void GoToRegistration() => await Shell.Current.GoToAsync("/registration");
+        public async void GoToLoginPage() => await Shell.Current.GoToAsync("/logining");
+
+        
+        [RelayCommand]
+        public async void Register()
         {
-            User newUser = new User(Username,Password);
+            User newUser = new User(Emaill, Password);
+            newUser.FirstName = Firstname ?? string.Empty;
+            newUser.LastName = Lastname ?? string.Empty;
+            newUser.Age = Age;
+            newUser.Username = Username ?? string.Empty;
+
+
+
+            await Shell.Current.GoToAsync("/home");
         }
+
+
 
     }
 }

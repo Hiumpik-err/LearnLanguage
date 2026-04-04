@@ -7,13 +7,12 @@ namespace LearnEnglishVocab.Model
 {
     public class User
     {
-        private int Id { get; set; }
-        private string Password { get; set => MakePassword(field); }
-        private string Email { get; set; }
-        private string Username { get; set; }
-        private string FirstName { get; set; }
-        private string LastName { get; set; }
-        private int Age {  get; set; }
+        public string Password { get; set => field = MakePassword(value); }
+        public string Email { get; set; }
+        public string? Username { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
+        public int? Age {  get; set; }
 
 
         public User(string email, string password)
