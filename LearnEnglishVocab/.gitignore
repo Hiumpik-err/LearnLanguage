@@ -1,0 +1,41 @@
+## .NET / Visual Studio
+bin/
+obj/
+out/
+.vs/
+.vscode/
+*.user
+*.userosscache
+*.sln.doccache
+
+## Śmieci systemowe i IDE
+.DS_Store
+Thumbs.db
+desktop.ini
+
+## Specyficzne dla MAUI / Xamarin
+# Android
+*.ap_
+*.apk
+*.aab
+*.dex
+# iOS / MacCatalyst
+*.ipa
+*.app
+*.framework
+*.dSYM
+# Windows (WinUI)
+AppPackages/
+BundleArtifacts/
+Package.StoreAssociation.xml
+_pkginfo.txt
+
+## Narzędzia i Pakiety
+node_modules/
+.nuget/
+packages/
+*.nupkg
+
+## Pliki środowiskowe (Klucze API, Sekrety)
+*.env
+*.secrets
