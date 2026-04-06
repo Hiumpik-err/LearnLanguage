@@ -7,18 +7,18 @@ namespace LearnEnglishVocab.Model
 {
     public class User
     {
-        public string Password { get; set => field = MakePassword(value); }
-        public string Email { get; set; }
-        public string? Username { get; set; }
-        public string? FirstName { get; set; }
-        public string? LastName { get; set; }
-        public int? Age {  get; set; }
+        public string password { get; set => field = MakePassword(value); }
+        public string email { get; set; }
+        public string? username { get; set; }
+        public string? firstname { get; set; }
+        public string? lastname { get; set; }
+        public int? age {  get; set; }
 
 
         public User(string email, string password)
         {
-            Email = email;
-            Password = password;
+            this.email = email;
+            this.password = password;
         }
         private string MakePassword(string password) => BCrypt.Net.BCrypt.HashPassword(password);
 

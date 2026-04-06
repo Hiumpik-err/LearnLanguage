@@ -24,5 +24,9 @@ public class UserController {
         }
         return new ResponseEntity<>("User failed to register", HttpStatus.BAD_REQUEST);
     }
+    @PostMapping("/login")
+    public ResponseEntity<?> Login(){
+
+    }
 
 }
