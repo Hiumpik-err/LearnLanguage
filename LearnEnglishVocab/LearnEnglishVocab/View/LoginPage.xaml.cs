@@ -8,4 +8,8 @@ public partial class LoginPage : ContentPage
 		InitializeComponent();
 		BindingContext = new LoggingAndRegistration();
 	}
+	protected override void OnAppearing()
+	{
+		base.OnAppearing();
+    }
 }

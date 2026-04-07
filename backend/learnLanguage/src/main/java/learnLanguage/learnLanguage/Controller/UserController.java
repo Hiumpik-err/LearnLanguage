@@ -2,6 +2,7 @@ package learnLanguage.learnLanguage.Controller;
 
 import learnLanguage.learnLanguage.Model.Accounts;
 import learnLanguage.learnLanguage.Service.UserService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,8 +26,8 @@ public class UserController {
         return new ResponseEntity<>("User failed to register", HttpStatus.BAD_REQUEST);
     }
     @PostMapping("/login")
-    public ResponseEntity<?> Login(){
-
+    public ResponseEntity<?> Login(@RequestBody Accounts user){
+        return new ResponseEntity("Logged in successfully", HttpStatus.OK);
     }
 
 }

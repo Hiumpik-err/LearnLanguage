@@ -16,7 +16,7 @@ namespace LearnEnglishVocab.ViewModel
     public partial class LoggingAndRegistration
     {
         private static readonly HttpClient _httpClient = new HttpClient();
-        private static readonly string URL = "http://10.0.2.2/api";
+        private static readonly string URL = "http://10.0.2.2:8080/api";
 
 
         [ObservableProperty]
@@ -31,6 +31,7 @@ namespace LearnEnglishVocab.ViewModel
         private string username;
         [ObservableProperty]
         private int age;
+
 
 
         [RelayCommand]
@@ -50,12 +51,14 @@ namespace LearnEnglishVocab.ViewModel
                 string json = JsonSerializer.Serialize(newUser);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                HttpResponseMessage response = await _httpClient.PostAsync(path, content);
+                var response = await _httpClient.PostAsync(path, content);
 
                 if (response.IsSuccessStatusCode)
                 {
                     await Shell.Current.GoToAsync("/home");
                 }
+                await Shell.Current.GoToAsync("/home");
+
 
 
             }
@@ -91,7 +94,7 @@ namespace LearnEnglishVocab.ViewModel
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
                 string path = URL + "/register";
-                HttpResponseMessage response = await _httpClient.PostAsync(path, content);
+                var response = await _httpClient.PostAsync(path, content);
 
                 if (response.IsSuccessStatusCode)
                 {
