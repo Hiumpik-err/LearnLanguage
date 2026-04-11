@@ -2,13 +2,10 @@ package learnLanguage.learnLanguage.Controller;
 
 import learnLanguage.learnLanguage.Model.Accounts;
 import learnLanguage.learnLanguage.Service.UserService;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.net.http.HttpResponse;
 
 @CrossOrigin
 @RestController
@@ -27,7 +24,10 @@ public class UserController {
     }
     @PostMapping("/login")
     public ResponseEntity<?> Login(@RequestBody Accounts user){
-        return new ResponseEntity("Logged in successfully", HttpStatus.OK);
+        String password = user.getPassword();
+        if(userService.LoginByEmail(user.getEmail(), password) || userService.LoginByUsername(user.getUsername(), password))
+            return new ResponseEntity("Logged in successfully", HttpStatus.OK);
+        return new ResponseEntity<>("Logging unsuccessfull", HttpStatus.NOT_FOUND);
     }
 
 }

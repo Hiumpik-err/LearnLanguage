@@ -1,11 +1,12 @@
 package learnLanguage.learnLanguage.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(indexes = {
+        @Index(name = "username_index", columnList = "username"),
+        @Index(name = "email_index", columnList = "email")
+})
 public class Accounts {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,7 +14,11 @@ public class Accounts {
 
     private String firstname;
     private String lastname;
+
+    @Column(unique = true)
     private String username;
+
+    @Column(unique = true)
     private String email;
     private String password;
 

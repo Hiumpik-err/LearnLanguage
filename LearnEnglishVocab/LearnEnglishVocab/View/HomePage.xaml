@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vd="clr-namespace:LearnEnglishVocab.Model"
              x:Class="LearnEnglishVocab.View.HomePage"
-             BackgroundColor="#F5F6FA"
+             BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#121212}"
              Title="HomePage">
     <!-- Główna siatka dzieląca ekran na sekcje z rysunku -->
-    <Grid RowDefinitions="250, 220, *, 80" ColumnDefinitions="*">
+    <Grid RowDefinitions="250, 220, *, 80" ColumnDefinitions="*" >
 
         <Grid Grid.Row="0" 
       ColumnDefinitions="*, Auto" 
@@ -92,19 +92,64 @@
         </VerticalStackLayout>
 
         <!-- Sekcja Środkowa (Dla Ciebie - Siatka kafelków) -->
-        <ScrollView Grid.Row="2" Padding="20">
-            <VerticalStackLayout Spacing="15">
-                <Label Text="Dla Ciebie" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+        <CollectionView Grid.Row="2" 
+                ItemsSource="{Binding AllCourses}"
+                SelectionMode="Single"
+                SelectionChangedCommand="{Binding onSelectedItemCommand}"
+                Margin="10,0"
+                SelectedItem="{Binding SelectedItem}">
 
-                <FlexLayout Wrap="Wrap" JustifyContent="SpaceBetween">
-                    <!-- Przykładowe kafelki z Twojego rysunku -->
-                    <Border WidthRequest="160" HeightRequest="100" StrokeShape="RoundRectangle 15" BackgroundColor="#E0E0E0" Margin="0,5">
-                    <Border WidthRequest="160" HeightRequest="100" StrokeShape="RoundRectangle 15" BackgroundColor="#E0E0E0" Margin="0,5"/>
-                    <Border WidthRequest="160" HeightRequest="100" StrokeShape="RoundRectangle 15" BackgroundColor="#E0E0E0" Margin="0,5"/>
-                </FlexLayout>
+            <CollectionView.Header>
+                <Label Text="Odkrywaj nowe tematy" 
+               FontSize="18" 
+               FontAttributes="Bold" 
+               Padding="10,10,10,15" 
+               TextColor="#2D3436"/>
+            </CollectionView.Header>
 
-            </VerticalStackLayout>
-        </ScrollView>
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" 
+                         Span="2" 
+                         HorizontalItemSpacing="10" 
+                         VerticalItemSpacing="10" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="vd:VocabularyData">
+                    <Border StrokeShape="RoundRectangle 15" 
+                    BackgroundColor="White"
+                    Padding="15"
+                    HeightRequest="140">
+
+                        <Border.Shadow>
+                            <Shadow Brush="Black" Offset="0,2" Radius="5" Opacity="0.05" />
+                        </Border.Shadow>
+
+                        <VerticalStackLayout Spacing="5" VerticalOptions="Center">
+                            <Image Source="{Binding imagePath}" 
+                           HeightRequest="40" 
+                           HorizontalOptions="Start"/>
+
+                            <Label Text="{Binding courseName}" 
+                           FontSize="16" 
+                           FontAttributes="Bold" 
+                           TextColor="#2D3436"
+                           MaxLines="1" 
+                           LineBreakMode="TailTruncation"/>
+
+                            <Label Text="{Binding level}" 
+                           FontSize="12" 
+                           TextColor="#4A90E2" 
+                           FontAttributes="Bold"/>
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+            <CollectionView.Footer>
+                <BoxView HeightRequest="40" Color="Transparent"/>
+            </CollectionView.Footer>
+        </CollectionView>
 
         <!-- #Tło 3: Dolny pasek nawigacji z przyciskiem (+) -->
         <Border Grid.Row="3" 

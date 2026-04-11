@@ -57,9 +57,7 @@ namespace LearnEnglishVocab.ViewModel
                 {
                     await Shell.Current.GoToAsync("/home");
                 }
-                await Shell.Current.GoToAsync("/home");
-
-
+                else throw new Exception("Wrong login or password");
 
             }
             catch(Exception ex)

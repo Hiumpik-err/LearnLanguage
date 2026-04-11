@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LearnEnglishVocab.View.courseDetails"
+             Title="courseDetails"
+             Background="Transparent"
+             >
+    <Grid>
+
+        <!-- Tło: Przyciemnienie i "rozmycie" wizualne -->
+        <!-- Ustawienie BackgroundColor z kanałem Alpha (np. #80000000) tworzy efekt półprzezroczystości -->
+        <BoxView BackgroundColor="#A0000000" 
+                 HorizontalOptions="Fill" 
+                 VerticalOptions="Fill">
+            <BoxView.GestureRecognizers>
+                <!-- Opcjonalnie: kliknięcie w tło zamyka modal -->
+                <TapGestureRecognizer Command="{Binding CloseModalCommand}" />
+            </BoxView.GestureRecognizers>
+        </BoxView>
+
+        <!-- Twoja karta (Modal) -->
+        <Frame Margin="20"
+               Padding="0" 
+               CornerRadius="20" 
+               HasShadow="True" 
+               BorderColor="#E0E0E0"
+               BackgroundColor="White"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               MaximumWidthRequest="600">
+
+            <Grid RowDefinitions="Auto, *, Auto">
+
+                <!-- #H - Header: Tytuł, Poziom, Język/Flaga -->
+                <BoxView Grid.Row="0" HeightRequest="1" Color="#E0E0E0" VerticalOptions="End"/>
+                <Grid Grid.Row="0" ColumnDefinitions="*, Auto" Padding="20,15">
+                    <VerticalStackLayout Grid.Column="0" Spacing="2">
+                        <Label Text="FRANCJA" 
+                               FontSize="22" 
+                               FontAttributes="Bold" 
+                               TextColor="#1C1C1E"/>
+                        <Label Text="Poziom: Średniozaawansowany" 
+                               FontSize="14" 
+                               TextColor="#8E8E93"/>
+                    </VerticalStackLayout>
+
+                    <!-- Flaga państwa -->
+                    <Label Grid.Column="1" 
+                           Text="🇫🇷" 
+                           FontSize="32" 
+                           VerticalOptions="Center"/>
+                </Grid>
+
+                <!-- #I - Sekcja Zdjęcia (Stolica) -->
+                <Grid Grid.Row="1" Padding="20" MinimumHeightRequest="250">
+                    <Frame Padding="0" 
+                           CornerRadius="15" 
+                           IsClippedToBounds="True" 
+                           BorderColor="Transparent">
+                        <Grid>
+                            <Image Source="https://images.unsplash.com/photo-1502602898657-3e91760cbb34" 
+                                   Aspect="AspectFill"
+                                   HorizontalOptions="Fill"
+                                   VerticalOptions="Fill"/>
+
+                            <BoxView BackgroundColor="Black" Opacity="0.3"/>
+                            <Label Text="Paryż" 
+                                   TextColor="White" 
+                                   FontAttributes="Bold" 
+                                   FontSize="28"
+                                   HorizontalOptions="Center"
+                                   VerticalOptions="Center"/>
+                        </Grid>
+                    </Frame>
+                </Grid>
+
+                <!-- #B - Sekcja Przycisku -->
+                <Grid Grid.Row="2" Padding="20,10,20,20">
+                    <Button Text="Dalej →"
+                            BackgroundColor="#007AFF"
+                            TextColor="White"
+                            CornerRadius="12"
+                            HeightRequest="50"
+                            WidthRequest="140"
+                            HorizontalOptions="End"
+                            FontAttributes="Bold"
+                            Command="{Binding GoToCourseCommand}"/>
+                </Grid>
+
+            </Grid>
+        </Frame>
+    </Grid>
+</ContentPage>

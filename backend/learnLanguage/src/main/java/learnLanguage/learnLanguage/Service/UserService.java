@@ -20,5 +20,25 @@ public class UserService {
             return false;
         }
     }
+    public boolean LoginByEmail(String email, String password){
+        try {
+            Accounts user = userRepo.findByEmail(email);
+            return user != null ? user.getPassword().equals(password) : false;
+        }
+        catch (Exception e){
+            return false;
+        }
+    }
+
+    public boolean LoginByUsername(String username, String password){
+        try {
+            Accounts user = userRepo.findByUsername(username);
+            return user != null ? user.getPassword().equals(password) : false;
+        }
+        catch (Exception e){
+            return false;
+        }
+    }
+
 
 }

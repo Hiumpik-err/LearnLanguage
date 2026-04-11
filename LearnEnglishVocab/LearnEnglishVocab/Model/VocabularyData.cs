@@ -7,7 +7,7 @@ namespace LearnEnglishVocab.Model
 {
     public class VocabularyData
     {
-        private int id { get; set; }
+        public int id { get;}
         public string courseName { get; set; }
         public string level { get; set; }
         public string language { get; set; }

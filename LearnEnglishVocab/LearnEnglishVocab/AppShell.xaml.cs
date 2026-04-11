@@ -11,6 +11,7 @@ namespace LearnEnglishVocab
             Routing.RegisterRoute("/registration", typeof(Registration));
             Routing.RegisterRoute("/home", typeof(HomePage));
             Routing.RegisterRoute("/logining", typeof(LoginPage));
+            Routing.RegisterRoute("/course", typeof(CoursePage));
 
         }
     }
