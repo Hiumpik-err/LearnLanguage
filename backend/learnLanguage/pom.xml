@@ -30,11 +30,11 @@
 		<java.version>25</java.version>
 	</properties>
 	<dependencies>
-<!--		<dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
-		<dependency>
+<!--		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security-oauth2-authorization-server</artifactId>
 		</dependency>
@@ -58,7 +58,7 @@
 			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		<!--<dependency>
+<!--		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security-oauth2-authorization-server-test</artifactId>
 			<scope>test</scope>
@@ -67,12 +67,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security-oauth2-resource-server-test</artifactId>
 			<scope>test</scope>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security-test</artifactId>
 			<scope>test</scope>
-		</dependency>-->
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webmvc-test</artifactId>

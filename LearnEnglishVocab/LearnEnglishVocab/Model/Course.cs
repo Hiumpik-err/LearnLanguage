@@ -12,11 +12,10 @@ namespace LearnEnglishVocab.Model
         public string level { get; set; }
         public string language { get; set; }
         public string imagePath { get; set; }
-        public List<Word> data { get; set }
+        public List<Word> data { get; set; }
 
         public Course(string courseName, string level, string language, string englishMeaning, string polishMeaning)
         {
-            this.id = new Random().Next(1, 100000);
             this.courseName = courseName;
             this.level = level;
             this.language = language;

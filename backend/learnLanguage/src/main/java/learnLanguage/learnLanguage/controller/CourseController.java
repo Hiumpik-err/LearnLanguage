@@ -1,7 +1,6 @@
-package learnLanguage.learnLanguage.Controller;
+package learnLanguage.learnLanguage.controller;
 
-import learnLanguage.learnLanguage.Service.CourseService;
-import org.apache.coyote.Response;
+import learnLanguage.learnLanguage.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

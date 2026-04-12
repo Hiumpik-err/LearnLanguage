@@ -1,6 +1,6 @@
-package learnLanguage.learnLanguage.Service;
+package learnLanguage.learnLanguage.service;
 
-import learnLanguage.learnLanguage.Model.Word;
+import learnLanguage.learnLanguage.model.Word;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

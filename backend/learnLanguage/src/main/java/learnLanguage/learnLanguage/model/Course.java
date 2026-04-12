@@ -1,4 +1,4 @@
-package learnLanguage.learnLanguage.Model;
+package learnLanguage.learnLanguage.model;
 
 import jakarta.persistence.*;
 
