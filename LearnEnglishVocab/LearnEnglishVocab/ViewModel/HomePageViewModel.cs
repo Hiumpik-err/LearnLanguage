@@ -14,24 +14,24 @@ namespace LearnEnglishVocab.ViewModel
     {
         private int itemId;
         public HomePageViewModel() { }
-        public HomePageViewModel(VocabularyData selectedItem) 
+        public HomePageViewModel(Course selectedItem) 
         {
             this.itemId = selectedItem.id;
         }
         
         [ObservableProperty]
-        private VocabularyData selectedItem;
+        private Course selectedItem;
 
         [ObservableProperty]
-        private ObservableCollection<VocabularyData> lastSeen = new ObservableCollection<VocabularyData>()
+        private ObservableCollection<Course> lastSeen = new ObservableCollection<Course>()
         {
-            new VocabularyData("Course1", "A1", "English", "Hello", "Cześć"),
-            new VocabularyData("Course2", "A1", "English", "Hello", "Cześć"),
-            new VocabularyData("Course3", "A1", "English", "Hello", "Cześć"),
-            new VocabularyData("Course4", "A1", "English", "Hello", "Cześć"),
+            new Course("Course1", "A1", "English", "Hello", "Cześć"),
+            new Course("Course2", "A1", "English", "Hello", "Cześć"),
+            new Course("Course3", "A1", "English", "Hello", "Cześć"),
+            new Course("Course4", "A1", "English", "Hello", "Cześć"),
         };
         [ObservableProperty]
-        public ObservableCollection<VocabularyData> allCourses = new ObservableCollection<VocabularyData>();
+        public ObservableCollection<Course> allCourses = new ObservableCollection<Course>();
 
         [RelayCommand]
         private async void onSelectedItem()

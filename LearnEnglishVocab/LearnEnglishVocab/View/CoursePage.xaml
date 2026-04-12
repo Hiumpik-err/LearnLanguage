@@ -2,11 +2,157 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LearnEnglishVocab.View.CoursePage"
-             Title="CoursePage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="CoursePage"
+             BackgroundColor="{AppThemeBinding Light=#F5F5F5, Dark=#121212}">
+    <Grid RowDefinitions="Auto, *, Auto, Auto">
+
+        <!-- Header (#H) -->
+        <Border Grid.Row="0" 
+                Padding="20,15" 
+                BackgroundColor="White" 
+                StrokeThickness="0">
+            <Border.Shadow>
+                <Shadow Offset="0,2" Radius="5" Opacity="0.1" />
+            </Border.Shadow>
+            <Grid ColumnDefinitions="*, Auto">
+                <Label Text="Kurs Angielskiego" 
+                       FontSize="20" 
+                       FontAttributes="Bold" 
+                       VerticalOptions="Center" 
+                       TextColor="#333"/>
+
+                <HorizontalStackLayout Grid.Column="1" Spacing="10" VerticalOptions="Center">
+                    <Label Text="B2" 
+                           FontAttributes="Bold" 
+                           TextColor="#512BD4" 
+                           VerticalOptions="Center"/>
+                    <!-- Flaga jako Emoji dla uproszczenia, można zamienić na Image -->
+                    <Label Text="🇬🇧" FontSize="24" VerticalOptions="Center"/>
+                </HorizontalStackLayout>
+            </Grid>
+        </Border>
+
+        <!-- Main Content (Słówka) -->
+        <VerticalStackLayout Grid.Row="1" 
+                             Spacing="25" 
+                             Padding="30" 
+                             VerticalOptions="Center">
+
+            <!-- Polish Word (#W) -->
+            <Border StrokeShape="RoundRectangle 15"
+                    Padding="20"
+                    BackgroundColor="#FFFFFF"
+                    StrokeThickness="1"
+                    Stroke="#E0E0E0">
+                <Label Text="Samochód" 
+                       FontSize="28" 
+                       HorizontalOptions="Center" 
+                       TextColor="#212121"
+                       FontAttributes="Bold"/>
+            </Border>
+
+            <!-- Entry for Translation (#M) -->
+            <Border StrokeShape="RoundRectangle 15"
+                    Padding="5"
+                    BackgroundColor="#FFFFFF"
+                    StrokeThickness="2"
+                    Stroke="#512BD4">
+                <Entry Placeholder="Wpisz tłumaczenie..."
+                       HorizontalTextAlignment="Center"
+                       FontSize="18"
+                       TextColor="#212121"
+                       Keyboard="Text"/>
+            </Border>
+
+            <!-- Check Button (Sprawdź) -->
+            <Button Text="SPRAWDŹ"
+                    BackgroundColor="#512BD4"
+                    TextColor="White"
+                    CornerRadius="15"
+                    HeightRequest="55"
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    Margin="0,10,0,0"/>
+
+            <!-- Statistics (Czerwone i Zielone kółka) -->
+            <Grid ColumnDefinitions="*, 1, *" Margin="0,20,0,0">
+                <!-- Błędy -->
+                <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center" Spacing="5">
+                    <Border WidthRequest="50" 
+                            HeightRequest="50" 
+                            StrokeShape="RoundRectangle 25"
+                            BackgroundColor="Transparent"
+                            Stroke="Red"
+                            StrokeThickness="3">
+                        <Label Text="3" 
+                               TextColor="Red" 
+                               HorizontalOptions="Center" 
+                               VerticalOptions="Center" 
+                               FontAttributes="Bold"/>
+                    </Border>
+                    <Label Text="Błędy" FontSize="12" HorizontalOptions="Center" TextColor="#666"/>
+                </VerticalStackLayout>
+
+                <!-- Separator -->
+                <BoxView Grid.Column="1" WidthRequest="1" Color="#DDD" VerticalOptions="Fill"/>
+
+                <!-- Poprawne -->
+                <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center" Spacing="5">
+                    <Border WidthRequest="50" 
+                            HeightRequest="50" 
+                            StrokeShape="RoundRectangle 25"
+                            BackgroundColor="Transparent"
+                            Stroke="Green"
+                            StrokeThickness="3">
+                        <Label Text="12" 
+                               TextColor="Green" 
+                               HorizontalOptions="Center" 
+                               VerticalOptions="Center" 
+                               FontAttributes="Bold"/>
+                    </Border>
+                    <Label Text="Poprawne" FontSize="12" HorizontalOptions="Center" TextColor="#666"/>
+                </VerticalStackLayout>
+            </Grid>
+        </VerticalStackLayout>
+
+        <!-- Total Stats (#E) -->
+        <VerticalStackLayout Grid.Row="2" Margin="0,0,0,20" Spacing="5">
+            <!-- Wizualizacja klamry przy użyciu kształtów lub prostego tekstu -->
+            <Label Text="⎴" FontSize="30" HorizontalOptions="Center" TextColor="#999" Margin="0,0,0,-15"/>
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
+                <Label Text="RAZEM ROZWIĄZANYCH:" TextColor="#666" FontSize="14"/>
+                <Label Text="15" FontAttributes="Bold" TextColor="#333" FontSize="14"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+
+        <!-- Bottom Menu -->
+        <Border Grid.Row="3" 
+                BackgroundColor="White" 
+                Padding="10,5" 
+                StrokeThickness="0"
+                HeightRequest="70">
+            <Grid ColumnDefinitions="*, *, *">
+                <ImageButton Source="home_icon.png" Grid.Column="0" Aspect="AspectFit" Margin="5"/>
+
+                <!-- Centralny przycisk Plus -->
+                <Border Grid.Column="1" 
+                        WidthRequest="50" 
+                        HeightRequest="50" 
+                        StrokeShape="RoundRectangle 25"
+                        BackgroundColor="#00AEEF"
+                        VerticalOptions="Center"
+                        StrokeThickness="0">
+                    <Label Text="+" 
+                           TextColor="White" 
+                           FontSize="30" 
+                           HorizontalOptions="Center" 
+                           VerticalOptions="Center"
+                           Margin="0,0,0,2"/>
+                </Border>
+
+                <ImageButton Source="settings_icon.png" Grid.Column="2" Aspect="AspectFit" Margin="5"/>
+            </Grid>
+        </Border>
+
+    </Grid>
 </ContentPage>

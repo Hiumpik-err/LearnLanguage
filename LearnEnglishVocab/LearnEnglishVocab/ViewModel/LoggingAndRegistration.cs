@@ -51,13 +51,14 @@ namespace LearnEnglishVocab.ViewModel
                 string json = JsonSerializer.Serialize(newUser);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                var response = await _httpClient.PostAsync(path, content);
+                /*var response = await _httpClient.PostAsync(path, content);
 
                 if (response.IsSuccessStatusCode)
                 {
                     await Shell.Current.GoToAsync("/home");
                 }
-                else throw new Exception("Wrong login or password");
+                else throw new Exception("Wrong login or password");*/
+                await Shell.Current.GoToAsync("/home");
 
             }
             catch(Exception ex)

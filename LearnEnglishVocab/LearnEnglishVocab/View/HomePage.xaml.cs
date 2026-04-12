@@ -16,7 +16,7 @@ public partial class HomePage : ContentPage
 
 		for(int i = 0; i < 100; i++)
 		{
-			viewModel.AllCourses.Add(new Model.VocabularyData("Course" + i, "en", "English", "Hello", "Cześć"));
+			viewModel.AllCourses.Add(new Model.Course("Course" + i, "en", "English", "Hello", "Cześć"));
 
         }
 

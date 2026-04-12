@@ -5,7 +5,7 @@ namespace LearnEnglishVocab.View;
 
 public partial class courseDetails : ContentPage
 {
-	public courseDetails(VocabularyData selectedItem)
+	public courseDetails(Course selectedItem)
 	{
 		InitializeComponent();
 		BindingContext = new HomePageViewModel(selectedItem);

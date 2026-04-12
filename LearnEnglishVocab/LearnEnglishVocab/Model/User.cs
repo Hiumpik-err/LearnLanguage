@@ -7,7 +7,7 @@ namespace LearnEnglishVocab.Model
 {
     public class User
     {
-        public string password { get; set => field = MakePassword(value); }
+        public string password { get; set; }
         public string email { get; set; }
         public string? username { get; set; }
         public string? firstname { get; set; }
@@ -20,7 +20,6 @@ namespace LearnEnglishVocab.Model
             this.email = email;
             this.password = password;
         }
-        private string MakePassword(string password) => BCrypt.Net.BCrypt.HashPassword(password);
 
 
 

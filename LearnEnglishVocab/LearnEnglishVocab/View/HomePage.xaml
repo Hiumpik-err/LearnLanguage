@@ -42,7 +42,7 @@
 
             <CarouselView ItemsSource="{Binding LastSeen}" PeekAreaInsets="35" Loop="False">
                 <CarouselView.ItemTemplate>
-                    <DataTemplate x:DataType="vd:VocabularyData">
+                    <DataTemplate x:DataType="vd:Course">
                         <Border StrokeShape="RoundRectangle 20" 
                                 BackgroundColor="White" 
                                 Margin="10" 
@@ -115,7 +115,7 @@
             </CollectionView.ItemsLayout>
 
             <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="vd:VocabularyData">
+                <DataTemplate x:DataType="vd:Course">
                     <Border StrokeShape="RoundRectangle 15" 
                     BackgroundColor="White"
                     Padding="15"
@@ -151,30 +151,32 @@
             </CollectionView.Footer>
         </CollectionView>
 
-        <!-- #Tło 3: Dolny pasek nawigacji z przyciskiem (+) -->
+        <!-- Bottom Menu -->
         <Border Grid.Row="3" 
-                BackgroundColor="White" 
-                StrokeShape="RoundRectangle 0" 
-                VerticalOptions="End">
+        BackgroundColor="White" 
+        Padding="10,5" 
+        StrokeThickness="0"
+        HeightRequest="70">
             <Grid ColumnDefinitions="*, *, *">
-                <ImageButton Source="user_profile.png" HeightRequest="30" Grid.Column="0"/>
+                <ImageButton Source="home_icon.png" Grid.Column="0" Aspect="AspectFit" Margin="5"/>
 
-                <!-- Przycisk (+) - Wyśrodkowany i lekko uniesiony -->
-                <Button Grid.Column="1" 
-                        Text="+" 
-                        FontSize="30" 
-                        TextColor="White"
-                        BackgroundColor="#4A90E2" 
-                        WidthRequest="70" 
-                        HeightRequest="70" 
-                        CornerRadius="35"
-                        TranslationY="-20">
-                    <Button.Shadow>
-                        <Shadow Brush="#4A90E2" Offset="0,10" Radius="15" Opacity="0.4"/>
-                    </Button.Shadow>
-                </Button>
+                <!-- Centralny przycisk Plus -->
+                <Border Grid.Column="1" 
+                WidthRequest="50" 
+                HeightRequest="50" 
+                StrokeShape="RoundRectangle 25"
+                BackgroundColor="#00AEEF"
+                VerticalOptions="Center"
+                StrokeThickness="0">
+                    <Label Text="+" 
+                   TextColor="White" 
+                   FontSize="30" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center"
+                   Margin="0,0,0,2"/>
+                </Border>
 
-                <ImageButton Source="feed_icon.png" HeightRequest="30" Grid.Column="2"/>
+                <ImageButton Source="settings_icon.png" Grid.Column="2" Aspect="AspectFit" Margin="5"/>
             </Grid>
         </Border>
 
