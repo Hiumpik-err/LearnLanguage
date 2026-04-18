@@ -1,5 +1,6 @@
 package learnLanguage.learnLanguage.controller;
 
+import learnLanguage.learnLanguage.model.Course;
 import learnLanguage.learnLanguage.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,12 +15,14 @@ public class CourseController {
     @Autowired
     private CourseService courseService;
 
-    @GetMapping("/courses")
-    public ResponseEntity<?> GetAllCourses(){
-        return new ResponseEntity<>("Dokoncz to", HttpStatus.OK);
-    }
     @GetMapping("/courses/{id}")
-    public ResponseEntity<?> getCourse(@PathVariable int id){
-        return new ResponseEntity<>("Dokoncz to", HttpStatus.OK);
+    public ResponseEntity<?> GetCourse(@PathVariable String id){
+        Course course = courseService.GetCourse(id);
+        if(course != null){
+            return new ResponseEntity<>(course, HttpStatus.OK);
+        }
+        return new ResponseEntity<>("Operacja nieudana GET(mongoDB)", HttpStatus.NOT_FOUND);
     }
+
+
 }
